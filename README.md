@@ -16,5 +16,6 @@ For nodejs-backend
 $ cd nodejs-backend
 $ add API_TOKENS to .env
 $ source .env
+$ npm install
 $ node server.js
 ```
