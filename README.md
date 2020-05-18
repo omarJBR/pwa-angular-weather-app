@@ -16,10 +16,8 @@ $ or install all of dependencies and devDependencies then > ng serve
 ```
 For nodejs-backend
 ```sh
-$ npm install npm-install-all -g
 $ cd nodejs-backend
-$ add API_TOKENS to .app-env
-$ source .app-env
-$ npm-install-all
+$ add API_TOKENS to .env
+$ source .env
 $ node server.js
 ```
