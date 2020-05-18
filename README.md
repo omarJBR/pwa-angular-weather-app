@@ -1,13 +1,10 @@
 # PWA Weather App
----
 A weather app written in AngularJS and NodeJS
 
 ## Demo
----
 A demo site running this little app can be found [here](https://weatherangular.herokuapp.com/).
 
-### Installation
----
+## Installation
 For angular-weather-app
 ```sh
 $ cd angular-weather-app
