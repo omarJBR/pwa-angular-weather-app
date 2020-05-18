@@ -1,0 +1,271 @@
+/* Main Div */
+.weather-app{
+    margin: 0 auto;
+    width: auto;
+    height: 700px;
+}
+.loading-page{
+    margin-left: 70px;
+    margin-top: 20px;
+    color: white;
+}
+.weather-app-contents{
+    text-align: left;
+}
+
+/* Dropdown */
+.dropdown{
+    width: 30%;
+}
+.dropdown-toggle{
+    width: 220px;
+    height: 38px;
+    text-align: left;
+    background: none;
+    border: none;
+    background-color: #c0c0c087;
+    color: white;
+    margin-left: 73px;
+}
+.dropdown-menu{
+    position: absolute;
+    width: 202px;
+    background-color:#878c98;
+    transform: translate3d(60px, 38px, 0px);
+    top: -3px !important;
+    left: -1px !important;
+    will-change: transform;
+    border-radius: 0px;
+}
+.dropdown-item {
+    color: white;
+    background-color: #878c98;
+
+}
+.fa{
+    font-size: 25px;
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    padding-top: 7px;
+    position: absolute;
+    background-color: #878c98;
+}
+
+/* currently-temp div */
+.currently-temp{
+    position: relative;
+    margin-left: 60px;
+    width: 53%;
+}
+.temp{
+    font-size: 8em;
+    color: white;
+}
+.temp-unit{
+    position: absolute;
+    font-size: 3em;
+    color: white;
+    top: 33px;
+    left: 139px;
+}
+.feels-visibilty,.wind-humidity,.barometer-dewpoint,.weather-summary{
+    position: absolute;
+    line-height: 1.2;
+    color: white;
+}
+.feels-visibilty{
+    top: 82px;
+    left: 250px;
+}
+.wind-humidity{
+    top: 100px;
+    left: 420px;
+}
+.barometer-dewpoint{
+    top: 100px;
+    left: 590px;
+}
+
+/* six-days-temp div */
+.six-days-temp{
+    margin-left: 73px;
+    color: white;
+}
+.day{
+    float: left;
+    width: 11%;
+}
+.day-name{
+    font-size: 13px;
+}
+.day-temp,.night-temp{
+    font-size: 1.5em;
+}
+.night-temp{
+    color: silver;
+}
+
+/* daily-hourly-temp div */
+.daily-hourly-temp{
+    position: relative;
+    float: left;
+    margin-top: 20px;
+    height: 200px;
+    width: 66%;
+}
+.change-summary{
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+.daily-btn,.hourly-btn{
+    border: none;
+    background-color: #c0c0c087;
+    color: white;
+    margin-left: 13px;
+    opacity: 0.5;
+}
+.active-summary{
+    opacity: 1;
+}
+.daily-summary{
+    margin-left: -5px;
+    width: auto;
+}
+.hourly-summary{
+    margin-left: 30px;
+    width: auto;
+}
+
+/* elevation-and-map div */
+.elevation-and-map{
+    width: 30%;
+    float: right;
+    margin-right: 20px;
+}
+.get-elevation-btn,.get-map-btn {
+    display: block;
+    width: 65%;
+    height: 38px;
+    margin: auto;
+    border: none;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    background-color: #c0c0c087;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.altitude{
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 3%;
+    color: #ffffff;
+}
+.meter-value{
+    margin-right: 40px;
+    color: silver;
+    cursor: pointer;
+}
+.feet-value{
+    cursor: pointer;
+}
+.meter-feet-btns{
+    margin: auto;
+    text-align: center;
+    font-size: 1.5em;
+    color: #c0c0c087;
+    margin-bottom: 45px;
+}
+.load-circle,.map-load-circle{
+    margin: 0 auto;
+    text-align: center;
+    width: 115px;
+    height: 115px;
+    border: 1px dashed white;
+    border-radius: 67%;
+    margin-bottom: 27px;
+    animation: circle 2s linear infinite;
+    display: none;
+}
+.loading-data,.map-loading-data{
+    width: 20%;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    margin-top: -97px;
+    margin-bottom: 100px;
+    display: none;
+}
+@keyframes circle{
+    from {transform: rotate(-0deg);}
+    to {transform: rotate(360deg);}
+}
+#map {
+    display: none;
+    height: 282px;
+    width: 65%;
+    margin: 0 auto;
+}
+.leaflet-container{
+    border: 2px solid #c0c0c087;
+}
+.leaflet{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 1090px) {
+    .dropdown{
+        width: 100%;
+    }
+
+    .feels-visibilty,.wind-humidity,.barometer-dewpoint{
+      display: none;
+    }
+    .weather-summary{
+        display: block !important;
+        top: 82px;
+        left: 200px;
+        width: 30%;
+    }
+
+    .day{
+        width: 50%;
+        margin-bottom: 15px;
+    }
+    .day-contents{
+        border-bottom: 1px solid;
+        width: 80px;
+    }
+
+    .daily-hourly-temp{
+        width: 100%;
+    }
+    .daily-summary{
+        margin-left: 8px;
+    }
+    .hourly-summary{
+        margin-left: 23px;
+    }
+
+    .elevation-and-map{
+        position: absolute;
+        width: 100%;
+        top: 1100px;
+        margin-left: 40px;
+    }
+    .get-elevation-btn,.get-map-btn {
+        width: 80%;
+    }
+    #map {
+        display: none;
+        width: 80%;
+        margin-bottom: 30px;
+    }
+}

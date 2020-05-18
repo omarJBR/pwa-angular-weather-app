@@ -1,0 +1,106 @@
+<div class="weather-app">
+    <div class="loading-page" *ngIf="!country">
+        <h2>Loading...</h2>
+    </div>
+    <br>
+    <div class="weather-app-contents">
+        <div class="dropdown" *ngIf="country">
+            <button class="dropdown-toggle" data-toggle="dropdown">
+                <span style="margin-left: 18px;">{{country}}</span>
+            </button>
+            <i class="fa fa-map-marker" aria-hidden="true" (click)="get_current_position()"
+                title="Get the temperature at your specific location"></i>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="/31.963158/35.930359">Amman</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/29.531919/35.006084">Aqaba</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/32.551445/35.851479">Irbid</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/32.332687/35.751785">Ajloun</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/32.280818/35.899288">Jerash</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/32.342891/36.208038">Al Mafraq</a>
+            </div>
+        </div><br>
+
+        <div class="elevation-and-map" style="display: none;">
+            <div>
+                <button type="button" (click)="get_elevation()" class="get-elevation-btn">Get your location's
+                    elevation
+                </button>
+                <p class="load-circle"></p>
+                <p class="loading-data">Loading..</p>
+                <div class="altitude" *ngIf="meet">
+                    <span class="your-altitude">Your location's altitude:</span>
+                    <br><span class="altitude-value">{{ meet }} Meter</span>
+                    <span class="feet-or-meter-value"></span>
+                </div>
+                <div class="meter-feet-btns" *ngIf="meet">
+                    <span class="meter-value" (click)="feet_to_meter()">m</span>
+                    <span title="Click here to feet value." (click)="meter_to_feet()" class="feet-value">ft</span>
+                </div>
+            </div>
+            <div>
+                <button type="button" (click)="get_map_location()" class="get-map-btn">Get your location's at
+                    map</button>
+                <p class="map-load-circle"></p>
+                <p class="map-loading-data">Loading..</p>
+                <div id="map" *ngIf="lat"></div>
+            </div>
+        </div>
+
+        <div class="currently-temp" *ngIf="country">
+            <div>
+                <span class="temp">{{(apidata.currently.temperature - 32) * (5/9) | round }}</span>
+                <span class="temp-unit">&deg;C</span>
+            </div>
+            <div class="feels-visibilty">
+                <span>{{apidata.currently.summary }}</span><br>
+                <span>Feels Like {{(apidata.currently.apparentTemperature - 32) * (5/9) | round}}&deg;</span><br>
+                <span>Visibility {{apidata.currently.visibility | round}} mi</span>
+            </div>
+            <div class="wind-humidity">
+                <span>Wind {{apidata.currently.windSpeed | round}} mph</span><br>
+                <span>Humidity {{apidata.currently.humidity }}</span>
+            </div>
+            <div class="barometer-dewpoint">
+                <span>Barometer {{apidata.currently.pressure | round}}</span><br>
+                <span>Dew Point {{apidata.currently.dewPoint | round}}°</span>
+            </div>
+            <div class="weather-summary" style="display: none;">
+                <span style="font-size: 25px;">{{apidata.currently.summary }}</span><br>
+                <span>{{apidata.currently.windSpeed | round}} mph</span><br>
+            </div>
+        </div>
+
+        <div class="six-days-temp" *ngIf="country">
+            <div class="day" *ngFor="let day of apidata.daily.data; let i = index">
+                <div class="day-contents" *ngIf="i < 6">
+                    <span class="day-name">{{ date[i] }}</span><br>
+                    <span>Hum: {{day.humidity}}</span><br>
+                    <span class="day-temp">{{(day.temperatureHigh - 32) * (5/9) | round}}&deg;</span><br>
+                    <span class="night-temp">{{(day.temperatureLow - 32) * (5/9) | round}}&deg;</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="daily-hourly-temp">
+            <div class="change-summary" style="display: none;">
+                <button class="daily-btn active-summary" (click)="show_daily()">
+                    DAILY SUMMARY
+                </button>
+                <button class="hourly-btn" (click)="show_hourly()">
+                    HOURLY
+                </button>
+            </div>
+            <div class="daily-summary">
+                <div id="daily-container"></div>
+            </div>
+            <div class="hourly-summary">
+                <div id="hourly-container" style="display: none"></div>
+            </div>
+        </div>
+    </div>
+</div>
