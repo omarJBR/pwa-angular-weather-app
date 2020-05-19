@@ -2,7 +2,7 @@
 A weather app written in AngularJS and NodeJS
 
 ## Demo
-A demo site running this little app can be found [here](https://weatherangular.herokuapp.com/).
+A demo site running this little app can be found [here](https://angular-weather-site.herokuapp.com/).
 
 ## Installation
 For angular-weather-app
